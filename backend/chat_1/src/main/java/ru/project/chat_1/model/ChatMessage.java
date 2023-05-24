@@ -19,7 +19,7 @@ public class ChatMessage {
    private String chatId;
    private String senderId;
    private String content;
-   private Date timestamp;
+   private Long timestamp;
 
    public ChatMessage() {
    }

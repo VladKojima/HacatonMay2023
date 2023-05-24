@@ -26,7 +26,6 @@ public class EventListenerClass {
     @EventListener
     public void chatSubscribe(SessionSubscribeEvent event) {
 
-
         String id = ((String) event.getMessage().getHeaders().get("simpDestination")).split("/")[2];
 
         for (Chat ch : chatRepository.findAllForUser(id)) {

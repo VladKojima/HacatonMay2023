@@ -8,7 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document("Manager")
+@Document("user")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -16,8 +16,5 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Manager {
     @Id
     public String id;
-    @DBRef
-    public Category category;
-    @DBRef
-    public User user;
+    public String category;
 }

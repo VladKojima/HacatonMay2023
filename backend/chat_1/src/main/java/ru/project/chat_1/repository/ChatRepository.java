@@ -15,4 +15,5 @@ public interface ChatRepository extends MongoRepository<Chat, String> {
 
     @Query("{'$or': [{'clientId' : ?#{#user}}, {'managerId': ?#{#user}}]}")
     List<Chat> findAllForUser(@Param("user") String user);
+
 }

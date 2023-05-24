@@ -24,4 +24,6 @@ public class User {
 
     @DBRef
     List<Chat> chats;
+
+    public int state;
 }

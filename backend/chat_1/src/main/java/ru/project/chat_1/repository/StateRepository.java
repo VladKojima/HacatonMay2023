@@ -6,5 +6,5 @@ import ru.project.chat_1.model.State;
 
 @Repository
 public interface StateRepository extends MongoRepository<State, String> {
-
+    State findByUserId(String userId);
 }

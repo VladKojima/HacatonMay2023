@@ -104,16 +104,19 @@ public class ChatController {
 
         String token = auth.split(" ")[1];
 
-        System.out.println(args.current + " " + args.chatId+ " "+ args.old);
-
         if(!authService.checkUser(args.old, token)) return ResponseEntity.status(403).build();
 
         Chat  chat = chatRepository.findById(args.chatId).get();
 
-        //if(chat.managerId!=args.old || chat.managerId == args.current) return ResponseEntity.status(418).build();
+        List<Manager> managers = managerRepository.findByCategoryId(args.category);
 
-        chat.setManagerId(args.current);
+        Manager manager = managers.get(new Random().nextInt(managers.size()));
+
+        chat.setManagerId(manager.id);
         chatRepository.save(chat);
+        for(ChatMessage cm : chatMessageRepository.findByChatId(chat.getId()))
+            messagingTemplate.convertAndSendToUser(manager.id, "queue/messages", cm);
+
         return  ResponseEntity.status(200).build();
     }
 
@@ -137,7 +140,7 @@ public class ChatController {
 
     private static class NewManagerArg{
         public String old;
-        public String current;
+        public String category;
 
         public String chatId;
     }

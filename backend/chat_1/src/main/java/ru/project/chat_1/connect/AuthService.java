@@ -1,15 +1,12 @@
 package ru.project.chat_1.connect;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import ru.project.chat_1.model.User;
 
 import java.net.HttpURLConnection;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 
 @Component
 public class AuthService {
@@ -17,14 +14,12 @@ public class AuthService {
 
     static HttpRequest.Builder reqPattern = HttpRequest.newBuilder().GET();
 
+    @Value("{userConfig.auth}")
+    String auth;
+
     public boolean checkUser(String userId, String token) throws Exception {
-//        HttpRequest req = reqPattern
-//                .uri(new URI("http://localhost:8081/api/users/" + userId))
-//                .header("Authorization", "Bearer " + token)
-//                .build();
-//        HttpResponse res = client.send(req, );
-//
-        HttpURLConnection con = (HttpURLConnection) new URL("http://localhost:8081/api/users/" + userId).openConnection();
+
+        HttpURLConnection con = (HttpURLConnection) new URL("http://"+auth+"/api/users/" + userId).openConnection();
 
         con.setRequestMethod("GET");
         con.setRequestProperty("Authorization", "Bearer "+token);
@@ -33,12 +28,4 @@ public class AuthService {
         return con.getResponseCode()!=401;
     }
 
-    /*
-    Категория товаров - id, name;
-    Менеджер - name, категория товаров
-    Клиент - ссылка на юзера
-    Юзер - начальная стадия, username, password, ФИО
-    Chat - там будет id (храниться категория)
-
-     */
 }

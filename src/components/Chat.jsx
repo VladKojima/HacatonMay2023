@@ -8,7 +8,7 @@ import NewMessage from "./NewMessage";
 import { getCoockes } from "../utilites/getCoockes";
 import axios from "axios";
 export default function Chat(){
-
+    const url1="192.168.214.232:8080"
     const [bt,setBt]=useState(false)
     const [online,setOnline]=useState(true)
     const [userId,setUserId]=useState(getCoockes('userID'))
@@ -16,10 +16,10 @@ export default function Chat(){
     const [chatId,setChatId]=useState()
     let [stomp,setStomp]=useState()
     async function checkperson(){
-        const url="192.168.214.232:8080"
+        
         const get="/manager/status?id="+getCoockes('userID')
-        console.log('http://'+url+get)
-        return  await axios.get('http://'+url+get).then(res=>{console.log(res.data.role)})
+        console.log('http://'+url1+get)
+        return  await axios.get('http://'+url1+get).then(res=>{console.log(res.data.role)})
     }
     useEffect(()=>{
 

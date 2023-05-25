@@ -11,7 +11,16 @@
         bottom: 0
     100%
         bottom: -31.25rem
-
+.t
+    width: 24rem
+    border: 0
+    .message
+        display: flex
+        align-items: center
+        img
+            height: 2rem
+            margin-left: 2rem
+    
 .miniwindow
     position: fixed
     bottom: 1rem
@@ -22,6 +31,7 @@
     width: 25rem
     overflow-x: hidden
     overflow-y: scroll
+
     &__header
         display: flex
         position: fixed
@@ -41,11 +51,11 @@
                 object-fit: cover
         .text
             h1
-                color: $def_color
+                color: black
                 font-size: 1.5rem
                 margin: 0
             p
-                color: $def_color
+                color: black
                 font-size: 1.2rem
                 margin: .5rem 0
         .close
@@ -55,7 +65,7 @@
                 transform: rotate(45deg)
                 font-size: 3rem
                 margin: 0
-                color: $grey
+                color: black
     &__body
         padding: 1rem 
         position: relative
@@ -79,7 +89,7 @@
             outline: 1px solid $grey
             padding: .5rem 
             width: 100%
-        .button
+        .button1
             margin-left: 2rem
             padding: 1rem
             padding-top: .5rem

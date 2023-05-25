@@ -28,9 +28,10 @@ export default function NewMessage({show, setBt, setChatId}){
         </div> 
         <div className="miniwindow__footer t">
            
-           <div className='message'>
-               <textarea type="text" />
-               <img className='button1'src={send}onClick={()=>{first_get()}}/>
-           </div>
-       </div></div>
+            <div className='message'>
+                <textarea type="text" />
+                <img className='button1'src={send} onClick={()=>{first_get()}}/>
+            </div>
+        </div>
+    </div>
 }

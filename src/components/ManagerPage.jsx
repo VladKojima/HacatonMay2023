@@ -19,6 +19,7 @@ export default function ManagerPage(){
     const [onCts,setOnCts]=useState(false)
     const [del,setDel]=useState(null)
     const [sts,setSts]=useState([])
+    const [s,sQ]=useState()
     async function first_get(){
         const url="192.168.214.70:8080"
         const get="/manager/status?id="+getCoockes('userID')
@@ -57,11 +58,11 @@ export default function ManagerPage(){
         stompClient.connect({}, onConnected, onError);
        
         get_ctgs()
-        
+        first_get()
         
 },[])
 
-first_get()
+
 
 let chats2=chats.filter((value, index, self) =>
 index === self.findIndex((t) => (
@@ -76,17 +77,17 @@ if(senderID==null){
             <div>
                 <p>Консультант</p>
             </div>
-            </div>
+        </div>
     </div>
     <div className="body">
     {chats&&chats2.map((v,i)=>{return <UserLine key={v.chatId}cat={cat}login={'user'+(v.chatId.substring([v.chatId.length-7]))} time={v.timestamp} status={'of'} text={v.content}  senderID={v.senderId} chatId={v.chatId} setChatId={setChatId} setChatId2={setChatId2}setSenderID={setSenderID} setOnCts={setOnCts}/>})}
     
     </div>
-    {onCts==true&&<Categoties cts={cts} chatId={chatId2} setDel={setDel} setOnCts={setOnCts}/>}
+    {onCts==true&&<Categoties cts={cts} chatId={chatId2} setDel={setDel} setOnCts={setOnCts} sQ={sQ}/>}
 </div>
 }
 else{
-    return <ManagerChat chats={chats} stomp={stomp}senderID={senderID} chatId={chatId} />
+    return <ManagerChat cts={s} chats={chats} stomp={stomp} setSenderID={setSenderID} chatId={chatId} />
 }
     
 }

@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getCoockes } from '../utilites/getCoockes'
 export default function Login(){
-    const url="192.168.214.70"
+    const url2="192.168.214.70"
     async function checkperson(){
         const url="192.168.214.70:8080"
         const get="/manager/status?id="+getCoockes('userID')
@@ -15,7 +15,7 @@ export default function Login(){
     }
         async function get_token(username,password){
             
-    return await axios.post("http://"+url+":8081/api/auth/login",{username: username ,password: password}).then((res)=>{console.log(res);return res.data}).catch((err)=>{return err})
+    return await axios.post("http://"+url2+":8081/api/auth/login",{username: username ,password: password}).then((res)=>{console.log(res);return res.data}).catch((err)=>{return err})
     }
     const nav=useNavigate()
     return <div className="d-flex container-fluid flex-column h-100" id="keycloak-app" data-v-app="">
@@ -121,9 +121,7 @@ export default function Login(){
                                                     if(document.querySelector('.pass-block').children[0].value.match(/^[a-zA-Z0-9]+$/)==null){
                                                         modal2(document.querySelector('.pass-block'),document.querySelector('.pass-block').children[0],'Пароль должен содержать только цифры и латинские символы')
                                                     }
-                                                    else{  if( document.querySelector('#username-keycloak').value.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-z]+$/)==null && document.querySelector('#username-keycloak').value.match(/^USER_[0-9ABSDF]{7}$/)==null){
-                                                        
-                                                        modal2(document.querySelector('.login-block'),document.querySelector('#username-keycloak'),'Некорректный логин')
+                                                    else{
                                                         get_token(document.querySelector('#username-keycloak').value,document.querySelector('.pass-block').children[0].value).then(res=>{
                                                             if(res.name!=undefined){
                                                                 modal(document.querySelector('#password-keycloak'),'Неправильный логин или пароль')
@@ -145,8 +143,6 @@ export default function Login(){
                                                             }).catch((err)=>{
                                                                 modal(document.querySelector('#password-keycloak'),'Неправильный логин или пароль')})
                                                     }
-                        
-                                                    }
                                                 }
                                             
                                            
@@ -160,7 +156,9 @@ export default function Login(){
                 </div>
                 <div className="forgot-pass-block">
                     <button className="standart-link" tabIndex="6"> Забыли пароль? </button></div></div></div></div></div>
-                  
+                    // }//document.querySelector('#username-keycloak').value.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-z]+$/)==null && document.querySelector('#username-keycloak').value.match(/^USER_[0-9ABSDF]{7}$/)==null
+// if(false ){
+//     modal2(document.querySelector('.login-block'),document.querySelector('#username-keycloak'),'Некорректный логин')
 
 
 // }else{

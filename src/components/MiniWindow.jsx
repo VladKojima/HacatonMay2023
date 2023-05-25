@@ -1,9 +1,10 @@
 
 import { useEffect, useState } from 'react'
-import avatar from '../imgs/200m.jpg'
+import avatar from '../imgs/Avatar.png'
 import MessageClient from './MessageClient'
 import MessageMeneger from './MessageMeneger'
 import { getCoockes } from '../utilites/getCoockes'
+import send from '../imgs/Send.png'
 import axios from 'axios'
 const url="192.168.214.70:8080"
 export default function MiniWindow({show,online,setBt,messages,stomp,chatId}){
@@ -68,13 +69,13 @@ export default function MiniWindow({show,online,setBt,messages,stomp,chatId}){
             <button onClick={showCat}>Перенаправить</button>}
             {showedCat && cat.map(item=><button onClick={()=>catRed(item.id)}>{item.nameCategory}</button>)}
                 <textarea type="text"   />
-                <div className='button' onClick={()=>{
+                <img className='button1' src={send}onClick={()=>{
                     if(document.querySelector('textarea').value.length!=0){
                         stomp.send("/app/chat",{Authorization: 'Bearer '+getCoockes('accessToken')},JSON.stringify({senderId: getCoockes('userID'),chatId: chatId, content: document.querySelector('textarea').value}))
                         document.querySelector('textarea').value=''
                     }
               
-                }}><p>Отпр</p> </div>
+                }}/>
             </div>
     </div>
 }

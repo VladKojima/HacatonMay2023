@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react'
-import avatar from '../imgs/200m.jpg'
+import avatar from '../imgs/Avatar.png'
 import MessageClient from './MessageClient'
 import MessageMeneger from './MessageMeneger'
 import { getCoockes } from '../utilites/getCoockes'
@@ -8,16 +8,22 @@ import SockJS from "sockjs-client";
 import Stomp from 'stompjs'
 import axios from 'axios'
 import send from '../imgs/Send.png'
-const url="192.168.214.232:8080"
-export default function ManagerChat({chats, stomp,senderID,chatId}){
+const url="192.168.214.70:8080"
+export default function ManagerChat({ctg, chats, stomp,senderID,chatId}){
   let buf=chats.sort((a,b)=>{if(a.timestamp>b.timestamp){return 1}else{
     if(a.timestamp==b.timestamp) return 0
     else{
         return 1
     }
   }})
-    return <div className={("mchat")}>
+  async function red(ctg){
+    
+    const get="/chat/redirect/"
+    return  await axios.post('http://'+url+get, { old: getCoockes('userID'), category: ctg, chatId: chatId},{headers:{Authorization: 'Bearer '+getCoockes('accessToken')}})
+}
+    return <> <div className={("mchat")}>
         <div className="mchat__header">
+
             <div className="avatar">
                 <img src={avatar} alt="" />
             </div>
@@ -25,6 +31,8 @@ export default function ManagerChat({chats, stomp,senderID,chatId}){
                 <h1>Клиент</h1>
 
             </div>
+
+            
 
         </div>
         { <div className="mchat_body">
@@ -49,11 +57,8 @@ export default function ManagerChat({chats, stomp,senderID,chatId}){
                 
                 }}></img>
                 </div>
-                <div className='t'>
-                    <p className='tech'>
-                    by ROWI [tech]
-                    </p>
-                </div>
+               
             </div>
-    </div>
+     
+    </div>   <div className='back' onClick={()=>{window.location.reload()}}><p>Список всех чатов</p></div></>
 }

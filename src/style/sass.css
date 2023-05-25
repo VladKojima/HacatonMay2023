@@ -49,6 +49,19 @@ h1, h2, p {
     bottom: -31.25rem;
   }
 }
+.t {
+  width: 24rem;
+  border: 0;
+}
+.t .message {
+  display: flex;
+  align-items: center;
+}
+.t .message img {
+  height: 2rem;
+  margin-left: 2rem;
+}
+
 .miniwindow {
   position: fixed;
   bottom: 1rem;
@@ -82,12 +95,12 @@ h1, h2, p {
      object-fit: cover;
 }
 .miniwindow__header .text h1 {
-  color: white;
+  color: black;
   font-size: 1.5rem;
   margin: 0;
 }
 .miniwindow__header .text p {
-  color: white;
+  color: black;
   font-size: 1.2rem;
   margin: 0.5rem 0;
 }
@@ -99,7 +112,7 @@ h1, h2, p {
   transform: rotate(45deg);
   font-size: 3rem;
   margin: 0;
-  color: rgb(219, 219, 219);
+  color: black;
 }
 .miniwindow__body {
   padding: 1rem;
@@ -126,7 +139,7 @@ h1, h2, p {
   padding: 0.5rem;
   width: 100%;
 }
-.miniwindow__footer .button {
+.miniwindow__footer .button1 {
   margin-left: 2rem;
   padding: 1rem;
   padding-top: 0.5rem;
@@ -195,7 +208,7 @@ h1, h2, p {
   align-items: center;
 }
 .chatlist__header .text h1 {
-  color: white;
+  color: black;
   font-size: 2rem;
   margin: 0;
 }
@@ -207,26 +220,24 @@ h1, h2, p {
   transform: rotate(45deg);
   font-size: 3rem;
   margin: 0;
-  color: white;
+  color: black;
 }
 
 .chatline {
   display: flex;
 }
 .chatline .message {
-  border: 5px solid rgba(96, 121, 234, 0.8);
-  padding: 1.2rem 2rem 1.2rem 4rem;
+  padding: 1rem 2rem;
   border-radius: 1.25rem;
-  background: rgba(96, 121, 234, 0.1);
-  width: 90%;
-  margin-left: auto;
+  background: #B4C5F8;
+  width: 80%;
   margin-bottom: 1rem;
 }
 .chatline .message p {
   margin: 0;
-  color: rgb(170, 170, 170);
+  color: black;
   font-weight: 700;
-  text-align: right;
+  text-align: left;
 }
 .chatline .message:hover {
   width: 100%;
@@ -246,9 +257,21 @@ h1, h2, p {
   align-items: center;
   font-family: "JetBrains Mono";
 }
+.managerPage .header__second {
+  background: linear-gradient(91.49deg, #FFDAF3 -3.58%, #69B1FF 50.73%, #16D0C0 104.36%);
+  padding: 16px;
+  border-radius: 5px;
+  align-items: center;
+  display: flex;
+  margin-left: auto;
+}
+.managerPage .header__second div p {
+  margin: 0;
+}
 .managerPage .header__second img {
   width: 4rem;
-  width-border-radius: 100%;
+  border-radius: 100%;
+  margin-right: 20px;
 }
 .managerPage .body .userline {
   display: flex;
@@ -321,10 +344,7 @@ h1, h2, p {
 
 .mchat {
   position: relative;
-  bottom: 5%;
   left: 25%;
-  border-radius: 20px;
-  box-shadow: 1px 1px 10px 10px rgba(221, 221, 221, 0.562);
   height: 50rem;
   width: 50rem;
   overflow-x: hidden;
@@ -334,7 +354,6 @@ h1, h2, p {
   display: flex;
   position: fixed;
   background: linear-gradient(91.49deg, #FFDAF3 -3.58%, #69B1FF 50.73%, #16D0C0 104.36%);
-  border-radius: 20px 20px 0 0;
   width: 50rem;
   height: 7rem;
   justify-content: center;
@@ -352,12 +371,12 @@ h1, h2, p {
      object-fit: cover;
 }
 .mchat__header .text h1 {
-  color: white;
+  color: black;
   font-size: 1.5rem;
   margin: 0;
 }
 .mchat__header .text p {
-  color: white;
+  color: black;
   font-size: 1.2rem;
   margin: 0.5rem 0;
 }
@@ -391,8 +410,8 @@ h1, h2, p {
   position: fixed;
   display: flex;
   background: white;
-  padding: 1rem 2.7rem;
-  bottom: 11rem;
+  padding: 0.5rem;
+  bottom: 8rem;
   left: 25.5%;
   align-items: center;
   border-radius: 5px;
@@ -423,4 +442,19 @@ h1, h2, p {
   align-items: center;
   color: rgb(170, 170, 170);
   text-align: right;
+}
+
+.back {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding-bottom: 4rem;
+  border-bottom: 5px solid black;
+}
+.back p {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 1rem 0 0 1rem;
 }/*# sourceMappingURL=sass.css.map */

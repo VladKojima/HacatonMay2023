@@ -7,8 +7,9 @@ import MiniWindow from "./MiniWindow";
 import NewMessage from "./NewMessage";
 import { getCoockes } from "../utilites/getCoockes";
 import axios from "axios";
+import Connections from "../Connections";
 export default function Chat(){
-    const url1=process.env.CONSTRING
+    const url1=Connections.chat
     const [bt,setBt]=useState(false)
     const [online,setOnline]=useState(true)
     const [userId,setUserId]=useState(getCoockes('userID'))
@@ -33,7 +34,7 @@ export default function Chat(){
               const onError=()=>{
                 console.log(1)
               }
-            const eSockJS = new SockJS("http://192.168.214.70:8080/ws");
+            const eSockJS = new SockJS(Connections.auth+"/ws");
             let stompClient = Stomp.over(eSockJS);
             setStomp(stompClient)
             stompClient.connect({}, onConnected, onError);

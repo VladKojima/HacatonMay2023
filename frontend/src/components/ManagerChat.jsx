@@ -49,7 +49,7 @@ export default function ManagerChat({chats, stomp,senderID,chatId}){
                 
                 }}></img>
                 </div>
-                <div>
+                <div className='t'>
                     <p className='tech'>
                     by ROWI [tech]
                     </p>

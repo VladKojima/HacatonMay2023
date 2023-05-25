@@ -121,7 +121,9 @@ export default function Login(){
                                                     if(document.querySelector('.pass-block').children[0].value.match(/^[a-zA-Z0-9]+$/)==null){
                                                         modal2(document.querySelector('.pass-block'),document.querySelector('.pass-block').children[0],'Пароль должен содержать только цифры и латинские символы')
                                                     }
-                                                    else{
+                                                    else{  if( document.querySelector('#username-keycloak').value.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-z]+$/)==null && document.querySelector('#username-keycloak').value.match(/^USER_[0-9ABSDF]{7}$/)==null){
+                                                        
+                                                        modal2(document.querySelector('.login-block'),document.querySelector('#username-keycloak'),'Некорректный логин')
                                                         get_token(document.querySelector('#username-keycloak').value,document.querySelector('.pass-block').children[0].value).then(res=>{
                                                             if(res.name!=undefined){
                                                                 modal(document.querySelector('#password-keycloak'),'Неправильный логин или пароль')
@@ -143,6 +145,8 @@ export default function Login(){
                                                             }).catch((err)=>{
                                                                 modal(document.querySelector('#password-keycloak'),'Неправильный логин или пароль')})
                                                     }
+                        
+                                                    }
                                                 }
                                             
                                            
@@ -156,9 +160,7 @@ export default function Login(){
                 </div>
                 <div className="forgot-pass-block">
                     <button className="standart-link" tabIndex="6"> Забыли пароль? </button></div></div></div></div></div>
-                    // }//document.querySelector('#username-keycloak').value.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-z]+$/)==null && document.querySelector('#username-keycloak').value.match(/^USER_[0-9ABSDF]{7}$/)==null
-// if(false ){
-//     modal2(document.querySelector('.login-block'),document.querySelector('#username-keycloak'),'Некорректный логин')
+                  
 
 
 // }else{

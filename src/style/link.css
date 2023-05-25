@@ -1,0 +1,33 @@
+.standart-link,
+.standart-link-flex {
+  height: 32px;
+  color: #4164eb;
+  line-height: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 0;
+  background: none;
+}
+.standart-link-flex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  width: 82px;
+}
+
+[class*="standart-link"]:hover {
+  color: #3455d1;
+}
+[class*="standart-link"]:hover svg path {
+  fill: #3455d1;
+}
+
+[class*="standart-link"]:active {
+  color: #223eac;
+}
+
+[class*="standart-link"]:active svg path {
+  fill: #223eac;
+}

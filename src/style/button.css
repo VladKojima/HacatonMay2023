@@ -1,0 +1,45 @@
+.button {
+	background: #ededed;
+	height: 40px;
+	font-weight: 500;
+	color: #19191a;
+}
+.button:not(.disabled, .button-back-from-otp):hover {
+	background: #dadada;
+}
+.button:not(.disabled, .button-back-from-otp):active {
+	background: #c8c8c8;
+}
+
+.button.main-button {
+	background: #4164eb;
+	color: white;
+}
+
+.button.main-button:not(.disabled):hover {
+	background: #3455d1;
+	color: white;
+}
+
+.button.main-button:not(.disabled):active {
+	background: #223eac;
+	color: white;
+}
+
+.button.disabled {
+	opacity: 0.32;
+	cursor: auto;
+	pointer-events: none;
+}
+.button-back-from-otp{
+	height: 40px;
+	width: 100%; 
+    border: 0;
+    background: #4164EB;
+    border-radius: 8px;
+    color: white;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+}

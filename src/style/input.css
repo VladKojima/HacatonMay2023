@@ -1,0 +1,39 @@
+.form-group input {
+	border-radius: 8px;
+	padding: 7px 16px;
+	border: none;
+    box-sizing: border-box;
+}
+
+input:not(.button) {
+	border: 1px solid #dadde7;
+	color: #19191a;
+	outline: none;
+}
+::placeholder {
+	color: #b5b5b5;
+	font-weight: 500;
+}
+
+input:not(.button):hover {
+	border-color: #8193c5;
+}
+
+input:not(.button):active {
+	border: 2px solid #4164eb;
+    padding: 6px 15px;
+}
+
+input:not(.button):focus {
+	border: 2px solid #4164eb;
+    padding: 6px 15px;
+}
+
+input:not(.button).error {
+	border: 2px solid #ed3636;
+    padding: 6px 15px;
+}
+
+input.input-pass[class] {
+    padding-right: calc(16px + 26px);
+}

@@ -1,0 +1,166 @@
+
+
+* {
+	font-family: "Inter";
+	font-weight: 400;
+}
+html, body{
+	height: 100%;
+}
+
+body {
+	background: #F6F6F4;
+	font-size: 14px;
+	color: #656567;
+	letter-spacing: 0.006em;
+}
+
+.rowi-logo {
+	padding-top: 2.5rem;
+	padding-bottom: 2rem;
+}
+
+h4, h5 {
+	font-weight: 500;
+	line-height: 2rem;
+	letter-spacing: 0.008em;
+	color: #19191a;
+	margin-bottom: 0;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+.standart-size {
+    font-size: 1rem;
+}
+
+.main-content {
+	width: 328px;
+	padding: 1.5rem;
+	background: #ffffff;
+	box-shadow: 0px 10px 32px rgba(20, 0, 75, 0.02);
+	border-radius: 16px;
+	margin: auto;
+	position: relative;
+}
+
+.form-group label {
+	padding-bottom: 4px;
+    padding-left: 4px;
+	line-height: 24px;
+}
+.form-group input {
+	display: block;
+	width: 100%;
+    line-height: 24px;
+}
+
+.pass-block {
+	position: relative;
+}
+.pass-svg {
+	position: absolute;
+	top: 8px;
+	right: 16px;
+	cursor: pointer;
+}
+
+.main-page-link-container {
+	width: auto;
+	margin: auto;
+	margin-top: 0.75rem;
+	height: 40px;
+}
+
+.description {
+	line-height: 24px;
+}
+
+.forgot-pass-block {
+	position: absolute;
+	height: 40px;
+	bottom: calc(-40px - 1.01rem);
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
+.error-message, .error-message-update-pass {
+	color: #ed3636;
+}
+.error-message-update-pass {
+    font-size: 12px;
+    letter-spacing: 0.01em;
+    padding-top: 4px;
+    padding-bottom: 14px;
+    line-height: 14px;
+}
+
+small {
+	font-size: 12px;
+	line-height: 14px;
+	letter-spacing: 0.01em;
+    display: inline-block;
+}
+
+/* pass-status-valid */
+.pass-status-valid {
+	position: absolute;
+	width: 310px;
+	height: 147px;
+	background-color: white;
+	box-shadow: 0px 10px 32px rgba(20, 0, 75, 0.08);
+	border-radius: 8px;
+	right: calc(-310px - 4px);
+	top: 0;
+}
+
+.pass-status-text {
+	padding-top: 0.75rem;
+	line-height: 12px;
+	letter-spacing: 0.01em;
+}
+
+.pass-status-text small {
+	white-space: pre-line;
+}
+
+.pass-status-text path.active {
+	fill: #0ca31b;
+}
+
+.color-block:not(:first-child) {
+	margin-left: 2px;
+}
+
+.color-block:first-child div {
+	border-radius: 8px 0px 0px 8px;
+}
+.color-block:last-child div {
+    border-radius: 0 8px 8px 0;
+}
+
+.color-block div {
+	width: 72px;
+	height: 3px;
+	background-color: #efefeb;
+}
+
+.color-block .warning {
+	background-color: #ff7d1f;
+}
+
+.color-block .success {
+	background-color: #0ca31b;
+}
+
+.back-button-div {
+    height: 32px;
+    box-sizing: content-box;
+}
+
+.el-loading-mask {
+    border-radius: 1rem;
+}

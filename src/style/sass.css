@@ -1,0 +1,426 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap");
+@font-face {
+  font-family: "JetBrains Mono", monospace;
+  src: url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap");
+}
+h1, h2, p {
+  font-family: "JetBrains Mono";
+}
+
+.buttonn {
+  padding: 2rem;
+  border-radius: 100%;
+  background: #EDF2FF;
+  width: 4.375rem;
+  height: 4.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+.buttonn p {
+  margin: 0;
+}
+.buttonn:hover {
+  width: 6rem;
+  height: 96px;
+  transition-duration: 0.2s;
+  font-size: 1.2rem;
+}
+
+@keyframes show {
+  0% {
+    bottom: -31.25rem;
+    overflow: hidden;
+  }
+  100% {
+    overflow: scroll;
+    bottom: 0;
+  }
+}
+@keyframes hide {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -31.25rem;
+  }
+}
+.miniwindow {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  border-radius: 20px;
+  box-shadow: 1px 1px 10px 10px rgba(221, 221, 221, 0.562);
+  height: 35rem;
+  width: 25rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.miniwindow__header {
+  display: flex;
+  position: fixed;
+  background: linear-gradient(91.49deg, #FFDAF3 -3.58%, #69B1FF 50.73%, #16D0C0 104.36%);
+  border-radius: 20px 20px 0 0;
+  width: 25rem;
+  height: 7rem;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 1000;
+}
+.miniwindow__header .avatar {
+  padding: 1rem;
+  width: 20%;
+}
+.miniwindow__header .avatar img {
+  border-radius: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.miniwindow__header .text h1 {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0;
+}
+.miniwindow__header .text p {
+  color: white;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+.miniwindow__header .close {
+  height: 50%;
+  cursor: pointer;
+}
+.miniwindow__header .close p {
+  transform: rotate(45deg);
+  font-size: 3rem;
+  margin: 0;
+  color: rgb(219, 219, 219);
+}
+.miniwindow__body {
+  padding: 1rem;
+  position: relative;
+  top: 7rem;
+  padding-bottom: 7rem;
+  overflow-x: hidden;
+}
+.miniwindow__footer {
+  position: fixed;
+  display: flex;
+  bottom: 1.5rem;
+  background: white;
+  padding: 1rem 2.7rem;
+  right: 1.7rem;
+  align-items: center;
+  border: 1px solid rgb(219, 219, 219);
+  border-radius: 5px;
+  z-index: 1000;
+}
+.miniwindow__footer textarea {
+  border: 0;
+  outline: 1px solid rgb(219, 219, 219);
+  padding: 0.5rem;
+  width: 100%;
+}
+.miniwindow__footer .button {
+  margin-left: 2rem;
+  padding: 1rem;
+  padding-top: 0.5rem;
+  color: rgb(140, 200, 213);
+  text-align: center;
+}
+
+.show {
+  animation: show 0.7s;
+}
+
+.hide {
+  animation: hide 0.7s;
+}
+
+.message_client {
+  display: flex;
+  align-items: center;
+}
+.message_client .time {
+  color: rgb(170, 170, 170);
+  font-size: 1.2rem;
+}
+.message_client .message {
+  background: #ACEAF3;
+  padding: 1.2rem 2rem 1.2rem 4rem;
+  border-radius: 3.75rem;
+  width: 70%;
+  margin-left: auto;
+  margin-bottom: 1rem;
+}
+.message_client .message p {
+  margin: 0;
+  color: black;
+  text-align: right;
+}
+
+.message_meneger {
+  display: flex;
+  align-items: center;
+}
+.message_meneger .time {
+  color: rgb(170, 170, 170);
+  font-size: 1.2rem;
+}
+.message_meneger .message {
+  background: #B4C5F8;
+  padding: 1.2rem 2rem 1.2rem 4rem;
+  border-radius: 3.75rem;
+  width: 70%;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+.message_meneger .message p {
+  margin: 0;
+  color: black;
+  text-align: left;
+}
+
+.chatlist__header {
+  display: flex;
+  background: linear-gradient(91.49deg, #FFDAF3 -3.58%, #69B1FF 50.73%, #16D0C0 104.36%);
+  border-radius: 20px 20px 0 0;
+  height: 7rem;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.chatlist__header .text h1 {
+  color: white;
+  font-size: 2rem;
+  margin: 0;
+}
+.chatlist__header .close {
+  height: 50%;
+  cursor: pointer;
+}
+.chatlist__header .close p {
+  transform: rotate(45deg);
+  font-size: 3rem;
+  margin: 0;
+  color: white;
+}
+
+.chatline {
+  display: flex;
+}
+.chatline .message {
+  border: 5px solid rgba(96, 121, 234, 0.8);
+  padding: 1.2rem 2rem 1.2rem 4rem;
+  border-radius: 1.25rem;
+  background: rgba(96, 121, 234, 0.1);
+  width: 90%;
+  margin-left: auto;
+  margin-bottom: 1rem;
+}
+.chatline .message p {
+  margin: 0;
+  color: rgb(170, 170, 170);
+  font-weight: 700;
+  text-align: right;
+}
+.chatline .message:hover {
+  width: 100%;
+  transition-duration: 0.2s;
+}
+
+.managerPage .header {
+  display: flex;
+  border-bottom: 5px solid black;
+}
+.managerPage .header__text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.8841rem;
+  line-height: 2.5rem;
+  display: flex;
+  align-items: center;
+  font-family: "JetBrains Mono";
+}
+.managerPage .header__second img {
+  width: 4rem;
+  width-border-radius: 100%;
+}
+.managerPage .body .userline {
+  display: flex;
+  background: #EDF2FF;
+  padding: 1.875rem 1.25rem;
+}
+.managerPage .body .userline .avatar {
+  width: 5%;
+}
+.managerPage .body .userline .avatar img {
+  width: 4rem;
+  border-radius: 100%;
+}
+.managerPage .body .userline .login, .managerPage .body .userline .time {
+  margin-left: 1.25rem;
+  font-style: normal;
+  width: 10%;
+  font-weight: 400;
+  font-size: 1.875rem;
+  line-height: 2.5rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.managerPage .body .userline .time {
+  width: 7%;
+}
+.managerPage .body .userline .text {
+  width: 30%;
+  padding: 0.5rem 2.1875rem;
+  background: #B4C5F8;
+  border-radius: 20px;
+  margin-left: 1.25rem;
+}
+.managerPage .body .userline .check,
+.managerPage .body .userline .reg {
+  text-align: center;
+  margin-left: 2rem;
+}
+
+.cts {
+  position: fixed;
+  border-radius: 20px;
+  top: 4rem;
+  right: 3rem;
+  border: 1px solid rgb(170, 170, 170);
+  z-index: 10000;
+  background: #EDF2FF;
+}
+.cts .header {
+  background: linear-gradient(91.49deg, #FFDAF3 -3.58%, #69B1FF 50.73%, #16D0C0 104.36%);
+  border-radius: 20px 20px 0 0;
+  padding: 0.625rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.cts .body {
+  margin-bottom: 0.2rem;
+}
+.cts .body div {
+  cursor: pointer;
+  width: 80%;
+  margin: auto;
+}
+.cts .body div p {
+  text-align: center;
+  margin: 0;
+  border-bottom: 1px solid black;
+}
+
+.mchat {
+  position: relative;
+  bottom: 5%;
+  left: 25%;
+  border-radius: 20px;
+  box-shadow: 1px 1px 10px 10px rgba(221, 221, 221, 0.562);
+  height: 50rem;
+  width: 50rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.mchat__header {
+  display: flex;
+  position: fixed;
+  background: linear-gradient(91.49deg, #FFDAF3 -3.58%, #69B1FF 50.73%, #16D0C0 104.36%);
+  border-radius: 20px 20px 0 0;
+  width: 50rem;
+  height: 7rem;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.mchat__header .avatar {
+  padding: 1rem;
+  width: 10%;
+}
+.mchat__header .avatar img {
+  border-radius: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.mchat__header .text h1 {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0;
+}
+.mchat__header .text p {
+  color: white;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+.mchat__header .close {
+  height: 50%;
+  cursor: pointer;
+}
+.mchat__header .close p {
+  transform: rotate(45deg);
+  font-size: 3rem;
+  margin: 0;
+  color: rgb(219, 219, 219);
+}
+.mchat_body {
+  padding: 1rem;
+  position: relative;
+  top: 7rem;
+  padding: 0 4rem 7rem 4rem;
+  overflow-x: hidden;
+}
+.mchat_body .start {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.0561rem;
+  line-height: 1.375rem;
+  text-align: center;
+  color: rgb(170, 170, 170);
+  margin-top: 1rem;
+}
+.mchat__footer {
+  position: fixed;
+  display: flex;
+  background: white;
+  padding: 1rem 2.7rem;
+  bottom: 11rem;
+  left: 25.5%;
+  align-items: center;
+  border-radius: 5px;
+  z-index: 1000;
+  flex-direction: column;
+}
+.mchat__footer div {
+  display: flex;
+  align-items: center;
+}
+.mchat__footer textarea {
+  border: 0;
+  outline: 1px solid rgb(219, 219, 219);
+  padding: 0.5rem;
+  width: 40rem;
+}
+.mchat__footer .button1 {
+  margin-left: 2rem;
+  width: 2rem;
+  cursor: pointer;
+}
+.mchat__footer .tech {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5256rem;
+  line-height: 2rem;
+  display: flex;
+  align-items: center;
+  color: rgb(170, 170, 170);
+  text-align: right;
+}/*# sourceMappingURL=sass.css.map */

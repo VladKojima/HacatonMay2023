@@ -1,0 +1,33 @@
+.multitab {
+  display: flex;
+  width: 280px;
+  height: 40px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  gap: 8px;
+  background: rgba(25, 25, 26, 0.04);
+  border-radius: 8px;
+}
+.multitab li {
+  list-style-type: none;
+  width: 132px;
+  height: 32px;
+}
+.active div {
+  color: rgba(25, 25, 26, 1);
+  background: #ffffff;
+  box-shadow: 0.5px 0.5px 3px rgba(0, 0, 0, 0.17);
+}
+
+.multitab li div {
+  display: flex;
+  height: 100%;
+  color: rgba(101, 101, 103, 1);
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

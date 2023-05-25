@@ -8,7 +8,8 @@ import SockJS from "sockjs-client";
 import Stomp from 'stompjs'
 import axios from 'axios'
 import send from '../imgs/Send.png'
-const url="192.168.214.70:8080"
+import Connections from '../Connections'
+const url=Connections.chat;
 export default function ManagerChat({ctg, chats, stomp,senderID,chatId}){
   let buf=chats.sort((a,b)=>{if(a.timestamp>b.timestamp){return 1}else{
     if(a.timestamp==b.timestamp) return 0

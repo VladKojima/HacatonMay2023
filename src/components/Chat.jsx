@@ -8,7 +8,7 @@ import NewMessage from "./NewMessage";
 import { getCoockes } from "../utilites/getCoockes";
 import axios from "axios";
 export default function Chat(){
-    const url1="192.168.214.232:8080"
+    const url1=process.env.CONSTRING
     const [bt,setBt]=useState(false)
     const [online,setOnline]=useState(true)
     const [userId,setUserId]=useState(getCoockes('userID'))

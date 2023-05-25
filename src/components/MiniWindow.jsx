@@ -6,7 +6,8 @@ import MessageMeneger from './MessageMeneger'
 import { getCoockes } from '../utilites/getCoockes'
 import send from '../imgs/Send.png'
 import axios from 'axios'
-const url="192.168.214.70:8080"
+import Connections from '../Connections'
+const url=Connections.chat;
 export default function MiniWindow({show,online,setBt,messages,stomp,chatId}){
     async function first_get(){
         

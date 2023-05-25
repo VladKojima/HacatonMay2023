@@ -8,6 +8,7 @@ import Stomp from 'stompjs'
 import { useEffect, useState } from 'react'
 import ManagerChat from './ManagerChat';
 import Categoties from './Categoties';
+import Connections from '../Connections';
 export default function ManagerPage(){
     const [chats,setChats]=useState([])
     const [cat,setCat]=useState()
@@ -20,18 +21,16 @@ export default function ManagerPage(){
     const [del,setDel]=useState(null)
     const [sts,setSts]=useState([])
     const [s,sQ]=useState()
+    const url=Connections.chat
     async function first_get(){
-        const url="192.168.214.70:8080"
         const get="/manager/status?id="+getCoockes('userID')
         return  await axios.get('http://'+url+get).then(res=>{setCat(res.data.category); get_Cat(cat) })
     }
     async function get_Cat(cat){
-        const url="192.168.214.70:8080"
         const get="/managers/"+cat
         return  await axios.get('http://'+url+get).then(res=>{})
     }
     async function get_ctgs(){
-        const url="192.168.214.70:8080"
         const get="/categories/"
         return  await axios.get('http://'+url+get).then(res=>{setCts(res.data)})
     }
@@ -52,7 +51,7 @@ export default function ManagerPage(){
           const onError=()=>{
             console.log(1)
           }
-        const eSockJS = new SockJS("http://192.168.214.70:8080/ws");
+        const eSockJS = new SockJS(Connections.chat+"/ws");
         let stompClient = Stomp.over(eSockJS);
         setStomp(stompClient)
         stompClient.connect({}, onConnected, onError);

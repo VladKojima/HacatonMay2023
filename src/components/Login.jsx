@@ -5,17 +5,18 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getCoockes } from '../utilites/getCoockes'
+import Connections from '../Connections'
 export default function Login(){
-    const url2="192.168.214.70"
+    const url2=Connections.auth
     async function checkperson(){
-        const url="192.168.214.70:8080"
+        const url=Connections.chat;
         const get="/manager/status?id="+getCoockes('userID')
         console.log('http://'+url+get)
         return  await axios.get('http://'+url+get).then(res=>{return res.data.role})
     }
         async function get_token(username,password){
             
-    return await axios.post("http://"+url2+":8081/api/auth/login",{username: username ,password: password}).then((res)=>{console.log(res);return res.data}).catch((err)=>{return err})
+    return await axios.post("http://"+url2+"/api/auth/login",{username: username ,password: password}).then((res)=>{console.log(res);return res.data}).catch((err)=>{return err})
     }
     const nav=useNavigate()
     return <div className="d-flex container-fluid flex-column h-100" id="keycloak-app" data-v-app="">

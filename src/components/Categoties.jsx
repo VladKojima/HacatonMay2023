@@ -1,9 +1,10 @@
 import { useState } from "react"
 import { getCoockes } from "../utilites/getCoockes"
 import axios from "axios"
+import Connections from "../Connections";
 export default function Categoties({sQ,cts,chatId,setDel, setOnCts}){
     const [ct, setCt]=useState()
-    const url1="192.168.214.70:8080"
+    const url1=Connections.chat;
     async function red(ctg){
         
         const get="/chat/redirect/"
